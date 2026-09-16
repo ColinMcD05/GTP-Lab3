@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class EnemySpeed : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private EnemyManager enemyManager;
 
-    // Update is called once per frame
+    // Uses the distance from the player to the enemy to determine how fast the enemy should be
+    [SerializeField] private Transform player;
+    [SerializeField] private float speedMulti = 2f;
+
     void Update()
     {
-        
+        if (player)
+        {
+            // Distance calculation
+            Vector3 offset = player.position - transform.position;
+            float sqrLen = offset.sqrMagnitude;
+
+            // Speed calculation
+            enemyManager.enemySpeed = sqrLen * speedMulti;
+
+            // For testing
+            print(enemyManager.enemySpeed);
+        }
     }
 }
