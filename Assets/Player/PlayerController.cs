@@ -7,9 +7,16 @@ public class PlayerController : MonoBehaviour
     //Player references
     [SerializeField] PlayerMovement playerMovement;
 
-    public void Move(InputAction.CallbackContext value)
+    private void Update()
     {
-        playerMovement.Move(value.ReadValue<Vector2>());
-        Debug.Log("Moving");
+        if(Input.GetKey(KeyCode.D))
+        {
+            playerMovement.MoveHorizontal(1);
+        }
+
+        if(Input.GetKey(KeyCode.A))
+        {
+            playerMovement.MoveHorizontal(-1);
+        }
     }
 }
