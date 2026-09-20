@@ -4,8 +4,8 @@ using UnityEngine;
 public class EnemyOrbit : MonoBehaviour
 {
     //References
-    [SerializeField] Transform player;
-    [SerializeField] EnemyManager enemyManager;
+    [SerializeField] private Transform player;
+    [SerializeField] EnemySpeed enemySpeed;
 
     public void Update()
     {
@@ -20,7 +20,7 @@ public class EnemyOrbit : MonoBehaviour
             float angle = Mathf.Atan2(offSet.y, offSet.x);
 
             //Convert speed to radians
-            float speed = enemyManager.enemySpeed * Mathf.Deg2Rad;
+            float speed = enemySpeed.speed * Mathf.Deg2Rad;
 
             //Increase angle for movement
             angle += speed * Time.deltaTime;
