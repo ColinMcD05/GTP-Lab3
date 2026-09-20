@@ -20,7 +20,7 @@ public class EnemySpeed : MonoBehaviour
             enemyManager.enemySpeed = sqrLen * speedMulti;
 
             // For testing
-            print(enemyManager.enemySpeed);
+            //print(enemyManager.enemySpeed);
         }
     }
 }
