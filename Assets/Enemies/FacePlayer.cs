@@ -15,13 +15,13 @@ public class FacePlayer : MonoBehaviour
         dir.Normalize();
 
         // Get the dot
-        float dot = Vector3.Dot(Vector3.right, dir);
+        float dot = Vector3.Dot(dir, Vector3.up);
 
         // Get the angle with arc cosine
         float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
 
         // Find if player is to the left or right enemy
-        float cross = Vector3.Cross(Vector3.right, dir).z;
+        float cross = Vector3.Cross(Vector3.up, dir).z;
 
         // If player is left, make the angle negative
         if (cross < 0)
